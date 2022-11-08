@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../stylesheets/auth-registerstyle.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="main">
+    <% if(data){ %>
+    <div id="alter" class="alert">
+     <div class="text-pr">
+        <h1><%=message %></h1>
+        
+        <div class="prg-bar">
+          <div id="bar" class="bar"></div>
+        </div>
+      </div>
+    </div>
+    <% } else{ %>  
+    <% } %>
+    <div id="a1">
+      <img src="../images/20618-removebg-preview.png" alt="">
+      <div id="a2">
+        <h2>Register</h2>
+        <form action="/register" method="post">
+          <h3>Full Name</h3>
+          <input type="text" name="name" placeholder="Aadarsh Raghuwanshi" required >
+          <!-- <h3>Email</h3>
+          <input type="email" name="email" unique="true" required placeholder="anything@gmail.com"> -->
+          <h3>Mobile No.</h3>
+          <input type="number" autocomplete="off" name="phone" required >
+          <h3>Password</h3>
+          <input type="password" name="password" required>
+          <h3>Confirm Password</h3>
+          <input type="password" required >
+          <input id="a3" type="submit">
+        </form>
+        <h4>Already have a account?<a href="login">Sign In</a></h4>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+
+var bar = document.querySelector("#bar");
+var prg = document.querySelector("#alter");
+
+wd = 100;
+br = 0;
+setInterval(function () {
+  if(wd >= 0){
+    
+    bar.style.width = wd-- + "%"
+  }
+  else{
+    prg.style.display = "none"
+  }
+}, 20);
+</script>
+</html>

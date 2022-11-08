@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheets/indexstyle.css" />
+  </head>
+  <body>
+    <div class="container">
+      <% if(data){ %>
+      <div id="alter" class="alert">
+        <div class="text-pr">
+          <h1><%=message %></h1>
+
+          <div class="prg-bar">
+            <div id="bar" class="bar"></div>
+          </div>
+        </div>
+      </div>
+      <% } else{ %> <% } %>
+      <div class="image-wapper">
+        <h1>Welcome Back</h1>
+      </div>
+      <div class="form-wapper">
+        <div class="form-header">
+          <h2>Login</h2>
+          <p>
+            Welcome back! Please login to your account and continue enjoying our
+            services.
+          </p>
+        </div>
+        <div class="form-body">
+          <form action="/login" method="post">
+            <div class="input-wrapper">
+              <label for="email">Phone</label>
+              <input
+                id="email"
+                autocomplete="off"
+                type="number"
+                name="phone"
+                placeholder="Mobile Number"
+                required
+              />
+            </div>
+            <div class="input-wrapper">
+              <label for="password">Password</label>
+              <input
+                id="password"
+                type="password"
+                name="password"
+                placeholder="****"
+                required
+              /><span class="icon show-pass"><i class="fi-rr-eye"></i></span>
+            </div>
+            <div class="input-wrapper more-action">
+              <label>
+                <input
+                  id="remember-me"
+                  type="checkbox"
+                  name="remember_me"
+                  required
+                />Remember Me </label
+              ><a class="form-link" href="forgotpassword">Forgot Password?</a>
+            </div>
+            <button type="submit">Sign In</button>
+          </form>
+        </div>
+        <div class="form-footer">
+          <p>
+            Don't have an account yet?<a
+              class="form-link"
+              href="auth-registration"
+              >Sign Up</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+      var bar = document.querySelector("#bar");
+      var prg = document.querySelector("#alter");
+
+      wd = 100;
+      br = 0;
+      setInterval(function () {
+        if (wd >= 0) {
+          bar.style.width = wd-- + "%";
+        } else {
+          prg.style.display = "none";
+        }
+      }, 20);
+    </script>
+  </body>
+</html>

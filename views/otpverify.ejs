@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheets/forgotpassword.css">
+</head>
+<body>
+    <div class="container">
+      <% if(data){ %>
+        <div id="alter" class="alert">
+         <div class="text-pr">
+            <h1><%=message %></h1>
+            <div class="prg-bar">
+              <div id="bar" class="bar"></div>
+            </div>
+          </div>
+        </div>
+        <% } else{ %>  
+        <% } %>
+        <div class="image-wapper">
+          <h1>Welcome Back</h1>
+        </div>
+        <div class="form-wapper">
+          <div class="form-header">
+            <h2>Second Step</h2>
+            <p>Please enter your OTP Verification code for your account.</p>
+          </div>
+          <div class="form-body">
+            <form   action="/changepassword/<%=phone%>" method="post">
+              <div class="input-wrapper">
+                <label for="email">OTP Verification</label>
+                <input id="email" autocomplete="off" type="Number" name="code" placeholder="OTP CODE"/>
+              </div>
+              <div class="input-wrapper">
+                <label for="email">password</label>
+                <input id="email" autocomplete="off" type="password" name="password" placeholder="****" required />
+              </div>
+              <div class="input-wrapper">
+                <label for="email">confirm password</label>
+                <input id="email" autocomplete="off" type="password" name="Confirm-Password" placeholder="****" required />
+              </div>
+              <button type="submit" > Submit  </button>
+            </form>
+          </div>
+          <div class="form-footer">
+            <p>Don't have an account yet?<a class="form-link" href="login">Sign In</a></p>
+          </div>
+        </div>
+      </div>
+</body>
+<script>
+
+  var bar = document.querySelector("#bar");
+  var prg = document.querySelector("#alter");
+  
+  wd = 100;
+  br = 0;
+  setInterval(function () {
+    if(wd >= 0){
+      
+      bar.style.width = wd-- + "%"
+    }
+    else{
+      prg.style.display = "none"
+    }
+  }, 20);
+  </script>
+</html>
